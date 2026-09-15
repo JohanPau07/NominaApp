@@ -19,15 +19,16 @@ NominaApp/
 ├── Services/
 │   └── GestorNomina.cs
 └── Program.cs
+```
 
-Cómo ejecutarlo
-Requisitos
+### Cómo ejecutarlo
+### Requisitos
 
-Visual Studio 2022 o superior
+- Visual Studio 2022 o superior
 
-.NET 8.0 (LTS)
+- .NET 8.0 (LTS)
 
-Pasos
+### Pasos
 
 Clonar el repositorio
 
@@ -35,7 +36,7 @@ Abrir NominaApp.sln en Visual Studio
 
 Presionar F5 o Ctrl + F5 para ejecutar
 
-Funcionalidades
+### Funcionalidades
 Registrar empleados de los 4 tipos, cada uno con los datos específicos que le corresponde capturar
 
 Listar todos los empleados registrados
@@ -44,7 +45,7 @@ Actualizar los datos de un empleado existente (el pago se recalcula automáticam
 
 Generar un reporte semanal con el pago de cada empleado y el total de la nómina
 
-Conceptos aplicados
+### Conceptos aplicados
 Clase abstracta — Empleado define el contrato común (CalcularPago(), TipoEmpleado()) sin saber cómo calcular un pago genérico, forzando a cada subtipo a implementarlo
 
 Herencia — los 4 tipos de empleado heredan de Empleado; EmpleadoAsalariadoPorComision además hereda de EmpleadoPorComision, reutilizando su cálculo de comisión
@@ -55,6 +56,6 @@ Encapsulamiento — la lista de empleados es privada dentro de GestorNomina; sol
 
 Principio Open/Closed — se puede agregar un nuevo tipo de empleado (una clase más que herede de Empleado) sin modificar el código ya existente
 
-Autor
+### Autor
 Johan Carlos Paulino Segura
 Matrícula: 2025-1187

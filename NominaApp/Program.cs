@@ -14,6 +14,7 @@ while (!salir)
     Console.WriteLine("4. Registrar empleado Asalariado por Comisión");
     Console.WriteLine("5. Listar empleados");
     Console.WriteLine("6. Generar reporte semanal de pagos");
+    Console.WriteLine("7. Actualizar empleado");
     Console.WriteLine("0. Salir");
     Console.Write("Seleccione una opción: ");
     string opcion = Console.ReadLine() ?? "";
@@ -111,6 +112,54 @@ while (!salir)
         case "6":
             gestor.GenerarReporteSemanal();
             break;
+
+        case "7":
+            {
+                Console.Write("SSN del empleado a actualizar: ");
+                string ssnBuscar = Console.ReadLine() ?? "";
+                var empleado = gestor.BuscarPorSSN(ssnBuscar);
+
+                if (empleado is null)
+                {
+                    Console.WriteLine("No se encontró un empleado con ese SSN.");
+                    break;
+                }
+
+               
+                if (empleado is EmpleadoAsalariadoPorComision asalariadoComision)
+                {
+                    Console.Write("Nuevas ventas brutas: ");
+                    asalariadoComision.VentasBrutas = decimal.Parse(Console.ReadLine() ?? "0");
+                    Console.Write("Nueva tarifa de comisión: ");
+                    asalariadoComision.TarifaComision = decimal.Parse(Console.ReadLine() ?? "0");
+                    Console.Write("Nuevo salario base: ");
+                    asalariadoComision.SalarioBase = decimal.Parse(Console.ReadLine() ?? "0");
+                }
+                else if (empleado is EmpleadoPorComision porComision)
+                {
+                    Console.Write("Nuevas ventas brutas: ");
+                    porComision.VentasBrutas = decimal.Parse(Console.ReadLine() ?? "0");
+                    Console.Write("Nueva tarifa de comisión: ");
+                    porComision.TarifaComision = decimal.Parse(Console.ReadLine() ?? "0");
+                }
+                else if (empleado is EmpleadoPorHoras porHoras)
+                {
+                    Console.Write("Nuevo sueldo por hora: ");
+                    porHoras.SueldoPorHora = decimal.Parse(Console.ReadLine() ?? "0");
+                    Console.Write("Nuevas horas trabajadas: ");
+                    porHoras.HorasTrabajadas = decimal.Parse(Console.ReadLine() ?? "0");
+                }
+                else if (empleado is EmpleadoAsalariado asalariado)
+                {
+                    Console.Write("Nuevo salario semanal: ");
+                    asalariado.Salario = decimal.Parse(Console.ReadLine() ?? "0");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Datos actualizados. Pago recalculado:");
+                Console.WriteLine($"{empleado.Nombre} {empleado.Apellido} | {empleado.TipoEmpleado()} | Nuevo pago: {empleado.CalcularPago():C2}");
+                break;
+            }
 
         case "0":
             salir = true;

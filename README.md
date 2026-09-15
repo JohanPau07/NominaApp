@@ -1,1 +1,26 @@
 # NominaApp
+Sistema de Nomina
+Que hace este sistema?
+Sistema dirigido al departamento de Recursos Humanos para gestionar los pagos semanales de empleados. Permite agregar, modificar y generar reportes de nómina para cada tipo de empleado.
+
+Estructura del proyecto
+SistemaNomina/
+├── Models/
+│   ├── Empleado.cs
+│   ├── EmpleadoAsalariado.cs
+│   ├── EmpleadoAsalariadoComision.cs
+│   ├── EmpleadoComision.cs
+│   └── EmpleadoPorHoras.cs
+└── Program.cs
+Como ejecutarlo
+Requisitos
+Visual Studio 2022 o superior
+.NET 10
+Pasos
+Clonar el repositorio
+Abrir SistemaNomina.slnx en Visual Studio
+Presionar F5 o Ctrl + F5 para ejecutar
+Conceptos aplicados
+Polimorfismo dinámico — cada tipo de empleado implementa su propio CalcularPago() mediante override
+Herencia — todos los empleados heredan de la clase abstracta Empleado
+Principio Open/Closed — el sistema es extensible sin modificar el código existente

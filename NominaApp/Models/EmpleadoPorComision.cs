@@ -7,7 +7,7 @@ namespace NominaApp.Models
         public decimal TarifaComision { get; set; }
         public EmpleadoPorComision(string nombre, string apellido, string ssn,
             decimal ventasBrutas, decimal tarifaComision)
-            : base(nombre, apellido, ssn)
+            : base(apellido, ssn, nombre)
         {
             VentasBrutas = ventasBrutas;
             TarifaComision = tarifaComision;

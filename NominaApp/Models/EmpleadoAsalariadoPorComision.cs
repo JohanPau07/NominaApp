@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace NominaApp.Models;
 
 
-public class EmpleadoAsaladriadoPorComision : EmpleadoPorComision
+public class EmpleadoAsalariadoPorComision : EmpleadoPorComision
 {
     public decimal SalarioBase { get; set; }
-    public EmpleadoAsaladriadoPorComision(string nombre, string apellido, string ssn,
+    public EmpleadoAsalariadoPorComision(string nombre, string apellido, string ssn,
         decimal ventasBrutas, decimal tarifaComision, decimal salarioBase)
         : base(nombre, apellido, ssn, ventasBrutas, tarifaComision)
     {

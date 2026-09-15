@@ -88,7 +88,7 @@ while (!salir)
                 Console.Write("Salario base: ");
                 decimal salarioBase = decimal.Parse(Console.ReadLine() ?? "0");
 
-                var empleado = new EmpleadoAsaladriadoPorComision(nombre, apellido, ssn, ventasBrutas, tarifaComision, salarioBase);
+                var empleado = new EmpleadoAsalariadoPorComision(nombre, apellido, ssn, ventasBrutas, tarifaComision, salarioBase);
                 gestor.AgregarEmpleado(empleado);
                 Console.WriteLine("Empleado Asalariado por Comisión registrado con éxito.");
                 break;
